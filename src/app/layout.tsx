@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTrigger,
@@ -25,6 +26,19 @@ export const metadata: Metadata = {
   description: "Centro de monitoramento do HU",
 };
 
+const SheetItems = [
+  {
+    title: "Adicionar novo paciente",
+    href: "/add-pacient",
+    icon: CirclePlus,
+  },
+  {
+    title: "Ver Lista de pacientes",
+    href: "/list-pacients",
+    icon: ClipboardList,
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,24 +47,29 @@ export default function RootLayout({
   return (
     <html lang="br">
       <body className={cn("min-h-screen bg-background font-sans antialiased")}>
-        <header className="flex p-4 bg-blue-700 justify-between">
+        <header className="flex p-4 bg-green-700 justify-between">
           <div className="flex space-x-4 items-center justify-center">
             <Sheet>
               <SheetTrigger>
                 <Menu className="text-white" />
               </SheetTrigger>
-              <SheetContent side="left" className="flex flex-col space-y-2">
+              <SheetContent
+                side="left"
+                className="flex flex-col [&>*]:text-gray-500"
+              >
                 <SheetHeader>
-                  <h2 className="text-xl font-bold">Menu</h2>
+                  <h2 className="text-xl font-bold text-black">Menu</h2>
                 </SheetHeader>
-                <a href="/add-pacient" className="flex space-x-2">
-                  <CirclePlus className="text-gray-500" />
-                  <span>Adicionar novo paciente</span>
-                </a>
-                <a href="/list-pacients" className="flex space-x-2">
-                  <ClipboardList className="text-gray-500" />
-                  <span>Ver Lista de pacientes</span>
-                </a>
+                {SheetItems.map((item) => (
+                  <a
+                    key={item.title}
+                    href={item.href}
+                    className="flex items-center space-x-2 hover:bg-gray-100 p-2 [&>*]:hover:text-black"
+                  >
+                    <item.icon />
+                    <span>{item.title}</span>
+                  </a>
+                ))}
               </SheetContent>
             </Sheet>
             <div className="text-xl font-bold text-white">
