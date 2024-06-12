@@ -24,7 +24,11 @@ import {
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-function page() {
+import prisma from "@/db";
+
+async function page() {
+  const pacients = await prisma.pacient.findMany();
+
   return (
     <main className="flex min-h-screen flex-col px-24 py-12 space-y-4">
       <h1 className="text-3xl font-bold">Lista de Todos os pacientes</h1>
@@ -78,6 +82,32 @@ function page() {
           </TableRow>
         </TableHeader>
         <TableBody>
+          {pacients.map((pacient) => (
+            <TableRow>
+              <TableCell>{pacient.name}</TableCell>
+              <TableCell>{pacient.phone}</TableCell>
+              <TableCell>{pacient.MedicalRecord}</TableCell>
+              <TableCell>{JSON.stringify(pacient.dateOfBirth)}</TableCell>
+              <TableCell>
+                <Badge variant="secondary">Stable</Badge>
+              </TableCell>
+              <TableCell>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                      <MoveHorizontalIcon className="w-4 h-4" />
+                      <span className="sr-only">Actions</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem>View Patient</DropdownMenuItem>
+                    <DropdownMenuItem>Update Status</DropdownMenuItem>
+                    <DropdownMenuItem>Discharge</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </TableCell>
+            </TableRow>
+          ))}
           <TableRow>
             <TableCell>Sarah Lee</TableCell>
             <TableCell>27</TableCell>
