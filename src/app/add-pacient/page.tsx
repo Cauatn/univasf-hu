@@ -24,7 +24,7 @@ function page() {
     <main className="flex min-h-screen flex-col px-24 py-12">
       <Card className="w-full max-w-2xl">
         <CardHeader>
-          <CardTitle>Patient Registration</CardTitle>
+          <CardTitle>Registro de paciente</CardTitle>
           <CardDescription>
             Fill out the form below to register a new patient.
           </CardDescription>

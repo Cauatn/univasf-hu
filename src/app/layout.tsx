@@ -46,7 +46,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="br">
-      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased max-w-[1560px] mx-auto"
+        )}
+      >
         <header className="flex p-4 bg-green-700 justify-between">
           <div className="flex space-x-4 items-center justify-center">
             <Sheet>
