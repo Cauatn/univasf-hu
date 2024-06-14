@@ -19,8 +19,10 @@ model Pacient {
   dateOfBirth   DateTime
   gender        String
   phone         String
-  MedicalRecord String
-  Adress        String
+  medicalRecord String
+  adress        String
+  room          String
+  treatment     String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
