@@ -19,17 +19,24 @@ import { Badge } from "./ui/badge";
 
 import prisma from "@/db";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+dayjs.locale("pt-br");
+
 async function PacientsTable() {
   const pacients = await prisma.pacient.findMany();
 
   return (
-    <Table>
+    <Table className="border rounded-lg">
       <TableHeader>
         <TableRow>
           <TableHead>Nome paciente</TableHead>
           <TableHead>Telefone</TableHead>
-          <TableHead>Endereço</TableHead>
+          <TableHead>Prontuário</TableHead>
           <TableHead>Entrada</TableHead>
+          <TableHead>Idade</TableHead>
           <TableHead>Sala</TableHead>
           <TableHead>Tratamento</TableHead>
           <TableHead className="w-[100px]">Status</TableHead>
@@ -43,11 +50,14 @@ async function PacientsTable() {
               <TableCell>{pacient.name}</TableCell>
               <TableCell>{pacient.phone}</TableCell>
               <TableCell>{pacient.medicalRecord}</TableCell>
-              <TableCell>{JSON.stringify(pacient.dateOfBirth)}</TableCell>
+              <TableCell>Dia entrada</TableCell>
+              <TableCell>{dayjs().to(pacient.dateOfBirth)}</TableCell>
               <TableCell>{pacient.room}</TableCell>
               <TableCell>{pacient.treatment}</TableCell>
               <TableCell>
-                <Badge variant="secondary">Stable</Badge>
+                <Badge variant="secondary" className="bg-green-200">
+                  Stable
+                </Badge>
               </TableCell>
               <TableCell>
                 <DropdownMenu>

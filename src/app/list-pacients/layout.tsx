@@ -1,6 +1,8 @@
 import PacientForm from "@/components/PacientForm";
+import { Button } from "@/components/ui/button";
 import prisma from "@/db";
 import { UserRound } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 async function Layout({ children }: { children: React.ReactNode }) {
@@ -17,7 +19,9 @@ async function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <span className="text-gray-500 text-lg">Quantidade de pacientes</span>
         </div>
-        <PacientForm />
+        <Link href="/add-pacient">
+          <Button className="bg-blue-500">Adicionar novo paciente</Button>
+        </Link>
       </div>
       {children}
     </main>
