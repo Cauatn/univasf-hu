@@ -51,7 +51,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased max-w-[1560px] mx-auto"
         )}
       >
-        <header className="flex p-4 bg-green-700 justify-between">
+        <header className="flex p-4 bg-blue-500 justify-between">
           <div className="flex space-x-4 items-center justify-center">
             <Sheet>
               <SheetTrigger>
