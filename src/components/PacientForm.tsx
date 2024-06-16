@@ -19,7 +19,7 @@ function PacientForm() {
       className="flex flex-col space-y-4 max-h-screen overflow-y-scroll min-h-fit"
       action={createPacient}
     >
-      <div className="grid grid-cols-4 justify-between space-x-4">
+      <div className="grid grid-cols-5 justify-between space-x-4">
         <div className="flex flex-col space-y-2 col-span-3">
           <label htmlFor="name">Nome do paciente</label>
           <input
@@ -37,6 +37,34 @@ function PacientForm() {
             id="room"
             className="p-2 border border-gray-300 rounded-lg"
           />
+        </div>
+        <div className="flex flex-col space-y-2">
+          <label htmlFor="status">Status</label>
+          <Select name="status">
+            <SelectTrigger id="status" className="w-[100px]">
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="estavel">
+                <div className="flex flex-row space-x-1 items-center">
+                  <div className="rounded-full bg-emerald-400 size-2"></div>
+                  <span>Estavel</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="instavel">
+                <div className="flex flex-row space-x-1 items-center">
+                  <div className="rounded-full bg-red-400 size-2"></div>
+                  <span>Instavel</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="observação">
+                <div className="flex flex-row space-x-1 items-center">
+                  <div className="rounded-full bg-orange-400 size-2"></div>
+                  <span>Em observação</span>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
       <div className="grid grid-flow-col auto-cols-min justify-between">

@@ -55,8 +55,17 @@ async function PacientsTable() {
               <TableCell>{pacient.room}</TableCell>
               <TableCell>{pacient.treatment}</TableCell>
               <TableCell>
-                <Badge variant="secondary" className="bg-green-200">
-                  Stable
+                <Badge
+                  variant="secondary"
+                  className={
+                    pacient.status === "estavel"
+                      ? "bg-emerald-300"
+                      : pacient.status === "instavel"
+                      ? "bg-red-400"
+                      : "bg-orange-300"
+                  }
+                >
+                  {pacient.status}
                 </Badge>
               </TableCell>
               <TableCell>

@@ -13,6 +13,7 @@ export async function createPacient(formData: FormData) {
       phone: formData.get("phone") as string,
       adress: formData.get("adress") as string,
       dateOfBirth: dateOfBirth,
+      status: formData.get("status") as string,
       room: formData.get("room") as string,
       treatment: formData.get("treatment") as string,
       medicalRecord: formData.get("medicalRecord") as string,
