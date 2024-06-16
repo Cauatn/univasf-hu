@@ -2,6 +2,7 @@
 
 import prisma from "@/db";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export async function createPacient(formData: FormData) {
   const dateOfBirthString = formData.get("dateOfBirth") as string;
@@ -21,5 +22,5 @@ export async function createPacient(formData: FormData) {
     },
   });
 
-  revalidatePath("/list-pacients");
+  redirect("/app/list-pacients");
 }
