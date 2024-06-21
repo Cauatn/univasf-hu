@@ -1,11 +1,9 @@
 import React from "react";
 import prisma from "@/db";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { NotepadText, Terminal } from "lucide-react";
-import { Card, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 type PageProps = {
@@ -64,7 +62,7 @@ async function page({ params }: PageProps) {
         <div>DADOS DO PACIENTE</div>
       </div>
       <div className="flex flex-row justify-between w-full">
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
           <label htmlFor="idade" className="text-gray-600">
             Idade
           </label>
@@ -72,19 +70,19 @@ async function page({ params }: PageProps) {
             {paciente.dateOfBirth.toDateString()}
           </span>
         </div>
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
           <label htmlFor="idade" className="text-gray-600">
             Gênero
           </label>
           <span className="text-gray-800">{paciente.gender}</span>
         </div>
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
           <label htmlFor="idade" className="text-gray-600">
             Telefone
           </label>
           <span className="text-gray-800">{paciente.phone}</span>
         </div>
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
           <label htmlFor="idade" className="text-gray-600">
             Endereço
           </label>
