@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { NotepadText, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Observations from "@/components/Observations";
 
 type PageProps = {
   params: {
@@ -58,10 +59,16 @@ async function page({ params }: PageProps) {
       </div>
       <Separator />
       <div className="flex flex-row items-center justify-center space-x-2">
-        <div className="w-1 h-6 bg-black transform"></div>
+        <div className="w-1 h-6 bg-orange-500 transform"></div>
         <div>DADOS DO PACIENTE</div>
       </div>
       <div className="flex flex-row justify-between w-full">
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
+          <label htmlFor="idade" className="text-gray-600">
+            Nº de identificação do paciente
+          </label>
+          <span className="text-gray-800">{paciente.id}</span>
+        </div>
         <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
           <label htmlFor="idade" className="text-gray-600">
             Idade
@@ -90,6 +97,40 @@ async function page({ params }: PageProps) {
         </div>
       </div>
       <Separator />
+      <div className="flex flex-row items-center justify-center space-x-2">
+        <div className="w-1 h-6 bg-green-500 transform"></div>
+        <div>DADOS NUTRICIONAIS</div>
+      </div>
+      <div className="flex flex-row justify-between w-full">
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
+          <label htmlFor="idade" className="text-gray-600">
+            Regime ou Dieta preescrita
+          </label>
+          <span className="text-gray-800">
+            dieta líquida / dieta para diabéticos.
+          </span>
+        </div>
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
+          <label htmlFor="idade" className="text-gray-600">
+            Peso e Altura
+          </label>
+          <span className="text-gray-800">20 Kg, 1.80m</span>
+        </div>
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
+          <label htmlFor="idade" className="text-gray-600">
+            Necessidades calóricas diárias
+          </label>
+          <span className="text-gray-800">1.300 Cal</span>
+        </div>
+        <div className="flex flex-col space-y-1 bg-zinc-50 px-6 py-2 rounded-lg">
+          <label htmlFor="idade" className="text-gray-600">
+            Preferências Alimentares
+          </label>
+          <span className="text-gray-800">Odeia : Comida 1, Comida 2</span>
+        </div>
+      </div>
+      <Separator />
+      <Observations />
     </div>
   );
 }

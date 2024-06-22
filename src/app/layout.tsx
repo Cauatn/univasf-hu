@@ -48,10 +48,10 @@ export default function RootLayout({
     <html lang="br">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-[1560px] mx-auto"
+          "min-h-screen bg-background font-sans antialiased mx-auto "
         )}
       >
-        <header className="flex p-4 bg-blue-500 justify-between">
+        <header className="flex p-4 bg-blue-500 justify-between ">
           <div className="flex space-x-4 items-center justify-center">
             <Sheet>
               <SheetTrigger>
@@ -87,7 +87,7 @@ export default function RootLayout({
             </a>
           </div>
         </header>
-        {children}
+        <div className="max-w-[1880px]">{children}</div>
       </body>
     </html>
   );
