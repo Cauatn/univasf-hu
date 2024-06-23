@@ -14,9 +14,6 @@ import {
 } from "./ui/table";
 
 function Observations(props: any) {
-  const { shelter } = props;
-  const [petsRsShelterUrl, setPetsRsShelterUrl] = useState("");
-
   const check = (v?: string | number | boolean | null) => {
     return v !== undefined && v !== null;
   };
@@ -28,8 +25,11 @@ function Observations(props: any) {
       </span>
       <div className="grid grid-cols-4 w-full gap-4">
         <Card className="flex flex-col gap-2 p-4 bg-[#E8F0F8] text-sm col-span-2">
-          <div className="text-[#646870] font-medium">
-            Informações importantes sobre o paciente
+          <div className="flex flex-row justify-between">
+            <div className="text-[#646870] font-medium">
+              Informações importantes sobre o paciente
+            </div>
+            <button className="text-blue-500 font-bold">Editar</button>
           </div>
           <div className="flex flex-col flex-wrap gap-3">
             <div className="font-medium">Restrições alimentares</div>
