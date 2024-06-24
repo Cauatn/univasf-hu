@@ -18,7 +18,7 @@ model Pacient {
   name             String
   dateOfBirth      DateTime
   gender           String
-  phone            Int
+  phone            BigInt
   medicalRecord    String
   adress           String
   room             Int
