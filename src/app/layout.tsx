@@ -87,7 +87,7 @@ export default function RootLayout({
             </a>
           </div>
         </header>
-        <div className="max-w-[1880px]">{children}</div>
+        <div className="max-w-[1880px] mx-auto">{children}</div>
       </body>
     </html>
   );
