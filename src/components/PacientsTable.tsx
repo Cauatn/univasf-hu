@@ -72,11 +72,11 @@ async function PacientsTable() {
               return (
                 <TableRow key={pacient.id}>
                   <TableCell>{pacient.name}</TableCell>
-                  <TableCell>{pacient.phone}</TableCell>
+                  <TableCell>{pacient.phone.toString()}</TableCell>
                   <TableCell>{pacient.medicalRecord}</TableCell>
                   <TableCell>Dia entrada</TableCell>
                   <TableCell>{dayjs().to(pacient.dateOfBirth)}</TableCell>
-                  <TableCell>{pacient.room}</TableCell>
+                  <TableCell>{pacient.room.toString()}</TableCell>
                   <TableCell>{pacient.treatment}</TableCell>
                   <TableCell>
                     <Badge

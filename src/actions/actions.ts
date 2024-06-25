@@ -25,5 +25,5 @@ export async function createPacient(formData: FormData) {
     },
   });
 
-  redirect("/app/list-pacients");
+  redirect("/list-pacients");
 }
