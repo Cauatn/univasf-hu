@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Fragment, useState } from "react";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "../../../../components/ui/card";
 import { Building, Milk } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -11,7 +11,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from "../../../../components/ui/table";
+import { InfoForm } from "./InfoForm";
 
 function Observations(props: any) {
   const check = (v?: string | number | boolean | null) => {
@@ -29,7 +30,7 @@ function Observations(props: any) {
             <div className="text-[#646870] font-medium">
               Informações importantes sobre o paciente
             </div>
-            <button className="text-blue-500 font-bold">Editar</button>
+            <InfoForm />
           </div>
           <div className="flex flex-col flex-wrap gap-3">
             <div className="font-medium">Restrições alimentares</div>
