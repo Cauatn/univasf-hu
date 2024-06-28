@@ -27,3 +27,14 @@ export async function createPacient(formData: FormData) {
 
   redirect("/list-pacients");
 }
+
+export async function createAllergy(allergy: string, pacientId: string) {
+  await prisma.allergy.create({
+    data: {
+      allergy: allergy,
+      pacientId: pacientId || "",
+    },
+  });
+
+  //revalidatePath(`/list-pacients/${id}`);
+}

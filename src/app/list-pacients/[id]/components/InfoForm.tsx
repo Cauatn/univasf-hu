@@ -15,8 +15,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useState } from "react";
+import { use, useState } from "react";
 import KeywordsInput from "./TagInput";
+import prisma from "@/db";
+import { useParams } from "next/navigation";
+import { PageProps } from "../types";
+import { createAllergy } from "@/actions/actions";
 
 const formSchema = z.object({
   allergies: z.array(z.string()),
@@ -24,10 +28,13 @@ const formSchema = z.object({
   history: z.array(z.string()),
 });
 
-export function InfoForm() {
+export function InfoForm({ params }: PageProps) {
   const [keywords, setKeywords] = useState([]);
   const [allergies, setAllergies] = useState([]);
   const [history, setHistory] = useState([]);
+
+  const url = useParams();
+  console.log(url.id);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,10 +46,14 @@ export function InfoForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const pacientId = Array.isArray(url.id) ? url.id[0] : url.id;
+
+    for (let i = 0; i < values.allergies.length; i++) {
+      let allergy = values.allergies[i];
+
+      createAllergy(allergy, pacientId);
+    }
   }
 
   return (
